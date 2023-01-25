@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author nuket
  */
-public class AgeCalculatorServlet extends HttpServlet {
+public class ArithmeticCalculatorServlet extends HttpServlet {
 
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -30,7 +30,7 @@ public class AgeCalculatorServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        getServletContext().getRequestDispatcher("/WEB-INF/agecalculator.jsp").forward(request, response);
+        getServletContext().getRequestDispatcher("/WEB-INF/arithmeticcalculator.jsp").forward(request, response);
     }
 
     /**
@@ -44,10 +44,10 @@ public class AgeCalculatorServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String age = request.getParameter("age");
-        age = age +1;
-        request.setAttribute("age", age);
-        getServletContext().getRequestDispatcher("/WEB-INF/agecalculator.jsp").forward(request, response);
+        String first = request.getParameter("first");
+        String second = request.getParameter("second");
+        
+        
     }
 
     /**
