@@ -17,7 +17,7 @@
             Enter Your Age: <input type="number" name="age"><br>
             <input type="submit" value="submit">
         </form>
-        ${age};
+        <h2>${age}</h2>
         <a href="arithmetic">Arithmetic Calculator</a>
     </body>
 </html>

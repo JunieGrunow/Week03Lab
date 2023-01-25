@@ -6,6 +6,7 @@
 package Servlet;
 
 import java.io.IOException;
+import static java.lang.Integer.parseInt;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -44,10 +45,16 @@ public class AgeCalculatorServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
         String age = request.getParameter("age");
+       if(age==null){
+           
+       }
         age = age +1;
         request.setAttribute("age", age);
         getServletContext().getRequestDispatcher("/WEB-INF/agecalculator.jsp").forward(request, response);
+        }
+       
     }
 
     /**
