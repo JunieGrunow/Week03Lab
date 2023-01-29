@@ -47,6 +47,7 @@ public class AgeCalculatorServlet extends HttpServlet {
             throws ServletException, IOException {
         String message ="";
         String age = request.getParameter("age");
+        request.setAttribute("age",age);
        if(age==null||age==""){
            message="You must provide your age as a number!";
            request.setAttribute("message", message);
@@ -58,7 +59,7 @@ public class AgeCalculatorServlet extends HttpServlet {
             parseInt(age);
         }catch(NumberFormatException e){
             message="You must provide your age as a number!";
-            request.setAttribute("message", mesage);
+            request.setAttribute("message", message);
         getServletContext().getRequestDispatcher("/WEB-INF/arithmeticcalculator.jsp").forward(request, response);
             return;
         }
@@ -69,14 +70,5 @@ public class AgeCalculatorServlet extends HttpServlet {
        
     }
 
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
-
-}
+   
+    

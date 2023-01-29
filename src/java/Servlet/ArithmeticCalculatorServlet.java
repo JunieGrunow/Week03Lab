@@ -50,6 +50,8 @@ public class ArithmeticCalculatorServlet extends HttpServlet {
             throws ServletException, IOException {
         String first = request.getParameter("first");
         String second = request.getParameter("second");
+        request.setAttribute("first", first);
+        request.setAttribute("second", second);
         String result = "---";
         String operation = request.getParameter("arth");
         
