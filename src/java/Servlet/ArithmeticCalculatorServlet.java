@@ -52,12 +52,24 @@ public class ArithmeticCalculatorServlet extends HttpServlet {
         String second = request.getParameter("second");
         String result = "---";
         String operation = request.getParameter("arth");
+        
         if(first==null||first.equals("")||second==null||second.equals("")){
             result="Invalid";
             request.setAttribute("result", result);
         getServletContext().getRequestDispatcher("/WEB-INF/arithmeticcalculator.jsp").forward(request, response);
             return;
         }
+        //add later, yes it is lazy
+        try{
+            parseInt(first);
+            parseInt(second);
+        }catch(NumberFormatException e){
+            result="Not Numbers";
+            request.setAttribute("result", result);
+        getServletContext().getRequestDispatcher("/WEB-INF/arithmeticcalculator.jsp").forward(request, response);
+            return;
+        }
+        
         if(operation.equals("+")){
             //java was angry that an int can't be converted to a string so this is my work around
             result=(parseInt(first))+(parseInt(second))+" ";
