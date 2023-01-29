@@ -16,12 +16,12 @@
         <form method="post" action="arithmetic">
             First: <input type="number" name="first"><br>
             Second: <input type="number" name="second"><br>
-            <input type="button" value="+" name="+">
-            <input type="button" value="-" name="-">
-            <input type="button" value="*" name="*">
-            <input type="button" value="%" name="%"><br>
+            <input type="submit" value="+" name="arth">
+            <input type="submit" value="-" name="arth">
+            <input type="submit" value="*" name="arth">
+            <input type="submit" value="%" name="arth"><br>
             <br>
-            Result: ---
+            Result: ${result}
         </form>
         <a href="age">Age Calculator</a>
     </body>

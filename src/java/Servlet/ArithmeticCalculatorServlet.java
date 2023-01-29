@@ -6,6 +6,7 @@
 package Servlet;
 
 import java.io.IOException;
+import static java.lang.Integer.parseInt;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -30,6 +31,9 @@ public class ArithmeticCalculatorServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        String result = "---";
+        request.setAttribute("result", result);
+        
         getServletContext().getRequestDispatcher("/WEB-INF/arithmeticcalculator.jsp").forward(request, response);
     }
 
@@ -46,8 +50,33 @@ public class ArithmeticCalculatorServlet extends HttpServlet {
             throws ServletException, IOException {
         String first = request.getParameter("first");
         String second = request.getParameter("second");
+        String result = "---";
+        String operation = request.getParameter("arth");
+        if(first==null||first.equals("")||second==null||second.equals("")){
+            result="Invalid";
+            request.setAttribute("result", result);
+        getServletContext().getRequestDispatcher("/WEB-INF/arithmeticcalculator.jsp").forward(request, response);
+            return;
+        }
+        if(operation.equals("+")){
+            //java was angry that an int can't be converted to a string so this is my work around
+            result=(parseInt(first))+(parseInt(second))+" ";
+        }
+        if(operation.equals("-")){
+            //java was angry that an int can't be converted to a string so this is my work around
+            result=(parseInt(first))-(parseInt(second))+" ";
+        }
+        if(operation.equals("*")){
+            //java was angry that an int can't be converted to a string so this is my work around
+            result=(parseInt(first))*(parseInt(second))+" ";
+        }
+        if(operation.equals("%")){
+            //java was angry that an int can't be converted to a string so this is my work around
+            result=(parseInt(first))%(parseInt(second))+" ";
+        }
         
-        
+        request.setAttribute("result", result);
+        getServletContext().getRequestDispatcher("/WEB-INF/arithmeticcalculator.jsp").forward(request, response);
     }
 
     /**
